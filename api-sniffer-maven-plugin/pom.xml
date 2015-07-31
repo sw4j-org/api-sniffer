@@ -13,7 +13,6 @@
 
   <groupId>org.sw4j.api-sniffer</groupId>
   <artifactId>api-sniffer-maven-plugin</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Java API Sniffer Maven Plugin</name>

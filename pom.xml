@@ -24,6 +24,7 @@
 
   <modules>
     <module>api-sniffer-maven-plugin</module>
+    <module>it</module>
   </modules>
 
   <build>
