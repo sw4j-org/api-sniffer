@@ -1,0 +1,4 @@
+language: java
+install: echo "No install"
+script: mvn clean install
+

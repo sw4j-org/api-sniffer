@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.sw4j</groupId>
+  <artifactId>api-sniffer</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Java API Sniffer</name>
+
+  <description>A Java API Sniffer to create and check APIs.</description>
+
+  <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+
+    <netbeans.hint.license>gpl30</netbeans.hint.license>
+
+    <compiler-plugin-version>3.3</compiler-plugin-version>
+  </properties>
+
+  <modules>
+    <module>api-sniffer-maven-plugin</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${compiler-plugin-version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <licenses>
+    <license>
+      <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
+      <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+    </license>
+  </licenses>
+
+</project>
