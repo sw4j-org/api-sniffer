@@ -20,6 +20,7 @@
   <description>Integration tests for the Java API Sniffer.</description>
 
   <properties>
+    <!-- Generic -->
     <netbeans.hint.license>gpl30</netbeans.hint.license>
   </properties>
 

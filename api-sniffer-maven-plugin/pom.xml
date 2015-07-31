@@ -21,7 +21,6 @@
 
   <properties>
     <!-- Generic -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <netbeans.hint.license>gpl30</netbeans.hint.license>
 
     <!-- Dependencies -->
