@@ -24,4 +24,8 @@
     <netbeans.hint.license>gpl30</netbeans.hint.license>
   </properties>
 
+  <modules>
+    <module>scan</module>
+  </modules>
+
 </project>

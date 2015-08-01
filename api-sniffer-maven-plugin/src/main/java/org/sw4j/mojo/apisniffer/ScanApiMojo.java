@@ -16,10 +16,13 @@
  */
 package org.sw4j.mojo.apisniffer;
 
+import java.io.File;
+import java.io.IOException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  *
@@ -28,8 +31,22 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "scan")
 public class ScanApiMojo extends AbstractMojo {
 
+    /**
+     * The directory where compiled classes are placed.
+     */
+    @Parameter(defaultValue = "${project.build.outputDirectory}", required = true, readonly = true)
+    private File outputDirectory;
+
+    @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getLog().debug("Executing scan mojo.");
+        try {
+            getLog().debug(new StringBuilder("Scanning directory ")
+                .append(outputDirectory.getCanonicalPath()).toString());
+        } catch (IOException ioex) {
+            getLog().error(new StringBuilder("Determining directory to scan not possible."));
+            throw new MojoExecutionException("Determining directory to scan not possible.", ioex);
+        }
     }
 
 }
