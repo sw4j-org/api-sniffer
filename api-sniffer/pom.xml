@@ -23,23 +23,14 @@
     <!-- Generic -->
     <netbeans.hint.license>gpl30</netbeans.hint.license>
 
-    <!-- Dependencies -->
-    <asm-commons>5.0.5</asm-commons>
-
     <!-- Plugin versions -->
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+    </dependency>
   </dependencies>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.ow2.asm</groupId>
-        <artifactId>asm-commons</artifactId>
-        <version>${asm-commons}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
 </project>

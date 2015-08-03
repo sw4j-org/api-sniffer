@@ -14,31 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.sw4j.apisniffer;
+package org.sw4j.apisniffer.builder;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.jar.JarInputStream;
+import java.util.Collection;
+import javax.annotation.concurrent.NotThreadSafe;
 import org.sw4j.apisniffer.api.Api;
+import org.sw4j.apisniffer.api.Type;
 
 /**
  *
  * @author Uwe Plonus
  */
-public class ApiScanner {
+@NotThreadSafe
+public final class ApiBuilder {
 
-    public Api scanFolder(File folder) {
+    public Api build() {
         return null;
     }
 
-    public Api scanJar(InputStream is) throws IOException {
-        return null;
-    }
 
-    public Api scanApi(InputStream is) throws IOException {
-        JarInputStream jis = new JarInputStream(is);
-        return null;
+    private static final class ApiImpl implements Api {
+
+        @Override
+        public Collection<Type> getTypes() {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+
     }
 
 }

@@ -14,31 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.sw4j.apisniffer;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.jar.JarInputStream;
-import org.sw4j.apisniffer.api.Api;
+package org.sw4j.apisniffer.util;
 
 /**
  *
  * @author Uwe Plonus
  */
-public class ApiScanner {
+public final class ApiUtils {
 
-    public Api scanFolder(File folder) {
-        return null;
-    }
-
-    public Api scanJar(InputStream is) throws IOException {
-        return null;
-    }
-
-    public Api scanApi(InputStream is) throws IOException {
-        JarInputStream jis = new JarInputStream(is);
-        return null;
+    private ApiUtils() {
+        // Hidden constructor
     }
 
 }
