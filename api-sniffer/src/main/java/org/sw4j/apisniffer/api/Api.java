@@ -25,6 +25,11 @@ import java.util.Collection;
  */
 public interface Api {
 
+    /**
+     * Returns the types (classes, interfaces, enums, annotations) of the API.
+     *
+     * @return the types of the API.
+     */
     Collection<Type> getTypes();
 
 }

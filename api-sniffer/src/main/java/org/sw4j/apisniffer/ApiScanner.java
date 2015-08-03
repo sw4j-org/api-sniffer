@@ -16,16 +16,20 @@
  */
 package org.sw4j.apisniffer;
 
-import java.io.OutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.jar.JarInputStream;
+import org.sw4j.apisniffer.api.Api;
 
 /**
  *
  * @author Uwe Plonus
  */
-public class ClassScanner {
+public class ApiScanner {
 
-    public void scanClasses(OutputStream target) {
-        
+    public Api scanApi(InputStream is) throws IOException {
+        JarInputStream jis = new JarInputStream(is);
+        return null;
     }
 
 }
