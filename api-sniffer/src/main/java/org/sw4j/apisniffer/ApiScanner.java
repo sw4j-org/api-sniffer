@@ -17,6 +17,7 @@
 package org.sw4j.apisniffer;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nonnull;
@@ -39,6 +40,18 @@ public class ApiScanner {
                     .append("\" is no folder.")
                     .toString());
         }
+        File[] files = folder.getAbsoluteFile().listFiles(
+            new DirectoryOrClassFileFilter());
+        for (File file: files) {
+            if (file.isDirectory()) {
+                scanFolder(file);
+            } else {
+                scanClass(file);
+            }
+        }
+    }
+
+    private void scanClass(@Nonnull File classFile) {
     }
 
     public void scanJar(@Nonnull InputStream is) throws IOException {
@@ -46,6 +59,18 @@ public class ApiScanner {
 
     public Api createApi() {
         return null;
+    }
+
+
+    private static final class DirectoryOrClassFileFilter
+    implements FileFilter {
+
+        @Override
+        public boolean accept(File pathname) {
+            return pathname.isDirectory() ||
+                pathname.getName().endsWith(".class");
+        }
+
     }
 
 }

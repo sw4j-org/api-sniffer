@@ -34,15 +34,15 @@ public class ApiScannerTest {
         objectToTest = new ApiScanner();
     }
 
-    @Test
-    public void testScanFolder() throws IOException {
-        objectToTest.scanFolder(new File(""));
-    }
-
     @Test(expectedExceptions = IllegalArgumentException.class,
         expectedExceptionsMessageRegExp = ".*target/test-classes/dummy.*")
     public void testScanFolderWithFile() throws IOException {
         objectToTest.scanFolder(new File("target/test-classes/dummy"));
+    }
+
+    @Test
+    public void testScanFolder() throws IOException {
+        objectToTest.scanFolder(new File(""));
     }
 
 }
