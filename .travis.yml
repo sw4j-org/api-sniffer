@@ -7,4 +7,7 @@ install:
   - git config --global user.email "travis@sw4j.org"
   - git config --global user.name "travis-ci"
 script: mvn clean install
-after_success: mvn post-site scm-publish:publish-scm
+after_success:
+  - mvn post-site scm-publish:publish-scm
+  - cd target/scmpublish-checkout
+  - git commit -m "Automatic created documentation"
