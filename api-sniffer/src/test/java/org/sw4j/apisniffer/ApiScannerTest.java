@@ -39,4 +39,10 @@ public class ApiScannerTest {
         objectToTest.scanFolder(new File(""));
     }
 
+    @Test(expectedExceptions = IllegalArgumentException.class,
+        expectedExceptionsMessageRegExp = ".*target/test-classes/dummy.*")
+    public void testScanFolderWithFile() throws IOException {
+        objectToTest.scanFolder(new File("target/test-classes/dummy"));
+    }
+
 }
