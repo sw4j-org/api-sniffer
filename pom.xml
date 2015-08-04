@@ -103,7 +103,6 @@
         <artifactId>maven-scm-publish-plugin</artifactId>
         <configuration>
           <scmBranch>gh-pages</scmBranch>
-          <pubScmUrl>https://github.com/sw4j-org/api-sniffer.git</pubScmUrl>
         </configuration>
         <executions>
           <execution>
@@ -202,7 +201,7 @@
   <distributionManagement>
     <site>
       <id>github</id>
-      <url>scm:git:ssh://git@github.com/sw4j-org/api-sniffer.git</url>
+      <url>scm:git:https://github.com/sw4j-org/api-sniffer.git</url>
     </site>
   </distributionManagement>
 
