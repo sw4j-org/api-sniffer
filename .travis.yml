@@ -5,5 +5,5 @@ language: java
 jdk: oraclejdk8
 install: echo "No install"
 script: mvn clean install
-after_success: mvn post-site scm-publish:publish-scm
+after_success: mvn site-deploy
 

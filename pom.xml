@@ -93,7 +93,7 @@
               <goal>stage</goal>
             </goals>
             <configuration>
-              <skipDeploy>false</skipDeploy>
+              <skipDeploy>true</skipDeploy>
             </configuration>
           </execution>
         </executions>
@@ -103,6 +103,7 @@
         <artifactId>maven-scm-publish-plugin</artifactId>
         <configuration>
           <scmBranch>gh-pages</scmBranch>
+          <pubScmUrl>https://github.com/sw4j-org/api-sniffer.git</pubScmUrl>
         </configuration>
         <executions>
           <execution>
