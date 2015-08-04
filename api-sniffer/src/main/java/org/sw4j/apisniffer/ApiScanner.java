@@ -19,25 +19,32 @@ package org.sw4j.apisniffer;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.jar.JarInputStream;
+import javax.annotation.Nonnull;
+import javax.annotation.concurrent.NotThreadSafe;
 import org.sw4j.apisniffer.api.Api;
 
 /**
  *
  * @author Uwe Plonus
  */
+@NotThreadSafe
 public class ApiScanner {
 
-    public Api scanFolder(File folder) {
-        return null;
+    public void scanFolder(@Nonnull File folder) {
+        if (!folder.getAbsoluteFile().isDirectory()) {
+            throw new IllegalArgumentException(
+                new StringBuilder("The method scanFolder(File) is for")
+                    .append(" scanning folders. The provided file \"")
+                    .append(folder.getAbsolutePath())
+                    .append("\" is no folder.")
+                    .toString());
+        }
     }
 
-    public Api scanJar(InputStream is) throws IOException {
-        return null;
+    public void scanJar(@Nonnull InputStream is) throws IOException {
     }
 
-    public Api scanApi(InputStream is) throws IOException {
-        JarInputStream jis = new JarInputStream(is);
+    public Api createApi() {
         return null;
     }
 

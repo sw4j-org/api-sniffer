@@ -23,8 +23,12 @@
     <!-- Dependencies -->
     <asm-version>5.0.4</asm-version>
     <jsr305-version>3.0.0</jsr305-version>
+    <testng-version>6.9.6</testng-version>
 
+    <!-- Plugins -->
     <compiler-plugin-version>3.3</compiler-plugin-version>
+    <scm-publish-plugin-version>1.1</scm-publish-plugin-version>
+    <site-plugin-version>3.4</site-plugin-version>
   </properties>
 
   <modules>
@@ -37,6 +41,11 @@
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -52,16 +61,65 @@
         <artifactId>asm</artifactId>
         <version>${asm-version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>${testng-version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>stage-for-scm-publish</id>
+            <phase>post-site</phase>
+            <goals>
+              <goal>stage</goal>
+            </goals>
+            <configuration>
+              <skipDeploy>false</skipDeploy>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-publish-plugin</artifactId>
+        <configuration>
+          <scmBranch>gh-pages</scmBranch>
+        </configuration>
+        <executions>
+          <execution>
+            <id>scm-publish</id>
+            <phase>site-deploy</phase>
+            <goals>
+              <goal>publish-scm</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-publish-plugin</artifactId>
+          <version>${scm-publish-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${site-plugin-version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -70,8 +128,15 @@
   <licenses>
     <license>
       <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
-      <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+      <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
     </license>
   </licenses>
+
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <url>scm:git:ssh://git@github.com/sw4j-org/api-sniffer.git</url>
+    </site>
+  </distributionManagement>
 
 </project>
