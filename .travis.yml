@@ -10,4 +10,4 @@ script: mvn clean install
 after_success:
   - mvn post-site scm-publish:publish-scm
   - cd target/scmpublish-checkout
-  - git commit -m "Automatic created documentation"
+  - git commit -a -m "Automatic created documentation"
