@@ -93,7 +93,7 @@
               <goal>stage</goal>
             </goals>
             <configuration>
-              <skipDeploy>true</skipDeploy>
+              <skipDeploy>false</skipDeploy>
             </configuration>
           </execution>
         </executions>
