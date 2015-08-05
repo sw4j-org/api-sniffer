@@ -18,6 +18,7 @@ package org.sw4j.apisniffer;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nonnull;
@@ -29,46 +30,62 @@ import org.sw4j.apisniffer.api.Api;
  * @author Uwe Plonus
  */
 @NotThreadSafe
-<span class="fc" id="L32">public class ApiScanner {</span>
+<span class="fc" id="L33">public class ApiScanner {</span>
 
-    public void scanFolder(@Nonnull File folder) {
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (!folder.getAbsoluteFile().isDirectory()) {</span>
-<span class="fc" id="L36">            throw new IllegalArgumentException(</span>
+    public void scanDirectory(@Nonnull final File folder) throws IOException {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!folder.getAbsoluteFile().isDirectory()) {</span>
+<span class="fc" id="L37">            throw new IllegalArgumentException(</span>
                 new StringBuilder(&quot;The method scanFolder(File) is for&quot;)
-<span class="fc" id="L38">                    .append(&quot; scanning folders. The provided file \&quot;&quot;)</span>
-<span class="fc" id="L39">                    .append(folder.getAbsolutePath())</span>
-<span class="fc" id="L40">                    .append(&quot;\&quot; is no folder.&quot;)</span>
-<span class="fc" id="L41">                    .toString());</span>
+<span class="fc" id="L39">                    .append(&quot; scanning folders. The provided file \&quot;&quot;)</span>
+<span class="fc" id="L40">                    .append(folder.getAbsolutePath())</span>
+<span class="fc" id="L41">                    .append(&quot;\&quot; is no folder.&quot;)</span>
+<span class="fc" id="L42">                    .toString());</span>
         }
-<span class="fc" id="L43">        File[] files = folder.getAbsoluteFile().listFiles(</span>
+<span class="fc" id="L44">        File[] files = folder.getAbsoluteFile().listFiles(</span>
             new DirectoryOrClassFileFilter());
-<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (File file: files) {</span>
-<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (file.isDirectory()) {</span>
-<span class="fc" id="L47">                scanFolder(file);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (File file: files) {</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            if (file.isDirectory()) {</span>
+<span class="fc" id="L48">                scanDirectory(file);</span>
             } else {
-<span class="fc" id="L49">                scanClass(file);</span>
+<span class="fc" id="L50">                scanClass(new FileInputStream(file));</span>
             }
         }
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L53">    }</span>
 
-    private void scanClass(@Nonnull File classFile) {
-<span class="fc" id="L55">    }</span>
+    private void scanClass(@Nonnull final InputStream classFile) {
+<span class="fc" id="L56">    }</span>
 
-    public void scanJar(@Nonnull InputStream is) throws IOException {
-<span class="nc" id="L58">    }</span>
+    public void scanJar(@Nonnull final InputStream is) throws IOException {
+<span class="nc" id="L59">    }</span>
 
+    /**
+     * Creates the API from the {@link #scanJar(java.io.InputStream) scanned jar file} or the
+     * {@link #scanDirectory(java.io.File) scanned directory}.
+     *
+     * @return the API from the scanned files.
+     */
     public Api createApi() {
-<span class="nc" id="L61">        return null;</span>
+<span class="nc" id="L68">        return null;</span>
     }
 
 
-<span class="fc" id="L65">    private static final class DirectoryOrClassFileFilter</span>
+    /**
+     * A file filter to accept only directories or files with the suffix {@code .class}.
+     */
+<span class="fc" id="L75">    private static final class DirectoryOrClassFileFilter</span>
     implements FileFilter {
 
+        /**
+         * Accepts only pathnames if it either is a directory or has the suffix {@code .class}.
+         *
+         * @param pathname the pathname to check.
+         * @return {@code true} if the pathname is either a directory or a file with suffix
+         *  {@code .class}.
+         */
         @Override
-        public boolean accept(File pathname) {
-<span class="fc bfc" id="L70" title="All 2 branches covered.">            return pathname.isDirectory() ||</span>
-<span class="fc bfc" id="L71" title="All 2 branches covered.">                pathname.getName().endsWith(&quot;.class&quot;);</span>
+        public boolean accept(final File pathname) {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            return pathname.isDirectory() ||</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">                pathname.getName().endsWith(&quot;.class&quot;);</span>
         }
 
     }
