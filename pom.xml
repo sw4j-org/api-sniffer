@@ -30,6 +30,7 @@
     <!-- Plugins -->
     <changes-plugin-version>2.11</changes-plugin-version>
     <checkstyle-plugin-version>2.16</checkstyle-plugin-version>
+    <checkstyle-version>6.8.2</checkstyle-version>
     <compiler-plugin-version>3.3</compiler-plugin-version>
     <jacoco-plugin-version>0.7.4.201502262128</jacoco-plugin-version>
     <scm-publish-plugin-version>1.1</scm-publish-plugin-version>
@@ -148,6 +149,16 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyle-plugin-version}</version>
+          <configuration>
+            <configLocation>https://github.com/sw4j-org/configuration/raw/master/checkstyle.xml</configLocation>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>${checkstyle-version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -183,6 +194,18 @@
           <reportSet>
             <reports>
               <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle-plugin-version}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
             </reports>
           </reportSet>
         </reportSets>

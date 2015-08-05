@@ -18,6 +18,7 @@ package org.sw4j.apisniffer;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nonnull;
@@ -31,7 +32,7 @@ import org.sw4j.apisniffer.api.Api;
 @NotThreadSafe
 public class ApiScanner {
 
-    public void scanFolder(@Nonnull File folder) {
+    public void scanDirectory(@Nonnull final File folder) throws IOException {
         if (!folder.getAbsoluteFile().isDirectory()) {
             throw new IllegalArgumentException(
                 new StringBuilder("The method scanFolder(File) is for")
@@ -44,29 +45,45 @@ public class ApiScanner {
             new DirectoryOrClassFileFilter());
         for (File file: files) {
             if (file.isDirectory()) {
-                scanFolder(file);
+                scanDirectory(file);
             } else {
-                scanClass(file);
+                scanClass(new FileInputStream(file));
             }
         }
     }
 
-    private void scanClass(@Nonnull File classFile) {
+    private void scanClass(@Nonnull final InputStream classFile) {
     }
 
-    public void scanJar(@Nonnull InputStream is) throws IOException {
+    public void scanJar(@Nonnull final InputStream is) throws IOException {
     }
 
+    /**
+     * Creates the API from the {@link #scanJar(java.io.InputStream) scanned jar file} or the
+     * {@link #scanDirectory(java.io.File) scanned directory}.
+     *
+     * @return the API from the scanned files.
+     */
     public Api createApi() {
         return null;
     }
 
 
+    /**
+     * A file filter to accept only directories or files with the suffix {@code .class}.
+     */
     private static final class DirectoryOrClassFileFilter
     implements FileFilter {
 
+        /**
+         * Accepts only pathnames if it either is a directory or has the suffix {@code .class}.
+         *
+         * @param pathname the pathname to check.
+         * @return {@code true} if the pathname is either a directory or a file with suffix
+         *  {@code .class}.
+         */
         @Override
-        public boolean accept(File pathname) {
+        public boolean accept(final File pathname) {
             return pathname.isDirectory() ||
                 pathname.getName().endsWith(".class");
         }

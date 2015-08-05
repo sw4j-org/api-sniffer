@@ -36,13 +36,13 @@ public class ApiScannerTest {
 
     @Test(expectedExceptions = IllegalArgumentException.class,
         expectedExceptionsMessageRegExp = ".*target/test-classes/dummy.*")
-    public void testScanFolderWithFile() throws IOException {
-        objectToTest.scanFolder(new File("target/test-classes/dummy"));
+    public void testScanDirectoryWithFile() throws IOException {
+        objectToTest.scanDirectory(new File("target/test-classes/dummy"));
     }
 
     @Test
-    public void testScanFolder() throws IOException {
-        objectToTest.scanFolder(new File(""));
+    public void testScanDirectory() throws IOException {
+        objectToTest.scanDirectory(new File(""));
     }
 
 }

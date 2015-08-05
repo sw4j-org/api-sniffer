@@ -16,8 +16,6 @@
  */
 package org.sw4j.apisniffer.api;
 
-import java.lang.reflect.Modifier;
-
 /**
  * This interface represents a named API element.
  *
@@ -36,7 +34,7 @@ public interface ApiElement {
      * Returns the modifiers of the API element.
      *
      * @return the modifiers.
-     * @see Modifier
+     * @see java.lang.reflect.Modifier
      */
     int getModifiers();
 
