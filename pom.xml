@@ -13,6 +13,8 @@
 
   <description>A Java API Sniffer to create and check APIs.</description>
 
+  <url>https://sw4j-org.github.io/api-sniffer/</url>
+
   <properties>
     <!-- Generic -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +29,9 @@
 
     <!-- Plugins -->
     <changes-plugin-version>2.11</changes-plugin-version>
+    <checkstyle-plugin-version>2.16</checkstyle-plugin-version>
     <compiler-plugin-version>3.3</compiler-plugin-version>
+    <jacoco-plugin-version>0.7.4.201502262128</jacoco-plugin-version>
     <scm-publish-plugin-version>1.1</scm-publish-plugin-version>
     <site-plugin-version>3.4</site-plugin-version>
 
@@ -78,6 +82,28 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <executions>
           <execution>
@@ -120,6 +146,11 @@
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${checkstyle-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler-plugin-version}</version>
         </plugin>
@@ -132,6 +163,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${site-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-plugin-version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -198,6 +234,14 @@
       <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
     </license>
   </licenses>
+
+  <developers>
+    <developer>
+      <id>uweplonus</id>
+      <name>Uwe Plonus</name>
+      <url>https://github.com/uweplonus</url>
+    </developer>
+  </developers>
 
   <distributionManagement>
     <site>
