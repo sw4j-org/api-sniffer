@@ -17,27 +17,43 @@
 package org.sw4j.apisniffer.builder;
 
 import java.util.Collection;
+import javax.annotation.concurrent.Immutable;
 import javax.annotation.concurrent.NotThreadSafe;
 import org.sw4j.apisniffer.api.Api;
 import org.sw4j.apisniffer.api.Type;
 
 /**
+ * This is a builder to create an {@link Api} object.
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &amp;lt;u.plonus@gmail.com&amp;gt;
  */
 @NotThreadSafe
-<span class="nc" id="L29">public final class ApiBuilder {</span>
+<span class="nc" id="L31">public final class ApiBuilder {</span>
 
+    /**
+     * Builds an {@link Api} object.
+     *
+     * @return the built API object.
+     */
     public Api build() {
-<span class="nc" id="L32">        return null;</span>
+<span class="nc" id="L39">        return null;</span>
     }
 
 
-<span class="nc" id="L36">    private static final class ApiImpl implements Api {</span>
+    /**
+     * A concrete implementation of the {@link Api} interface.
+     */
+<span class="nc" id="L46">    @Immutable</span>
+<span class="nc" id="L47">    private static final class ApiImpl implements Api {</span>
 
+        /**
+         * Returns all types (classes, enums, interfaces, annotations) of this API.
+         *
+         * @return all types of this API.
+         */
         @Override
         public Collection&lt;Type&gt; getTypes() {
-<span class="nc" id="L40">            throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+<span class="nc" id="L56">            throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
         }
 
     }
