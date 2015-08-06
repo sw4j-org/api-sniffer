@@ -23,7 +23,7 @@ import org.testng.annotations.Test;
 
 /**
  *
- * @author Uwe Plonus <uwe.plonus@sw4j.org>
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public class ApiScannerTest {
 

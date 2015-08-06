@@ -17,24 +17,40 @@
 package org.sw4j.apisniffer.builder;
 
 import java.util.Collection;
+import javax.annotation.concurrent.Immutable;
 import javax.annotation.concurrent.NotThreadSafe;
 import org.sw4j.apisniffer.api.Api;
 import org.sw4j.apisniffer.api.Type;
 
 /**
+ * This is a builder to create an {@link Api} object.
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 @NotThreadSafe
 public final class ApiBuilder {
 
+    /**
+     * Builds an {@link Api} object.
+     *
+     * @return the built API object.
+     */
     public Api build() {
         return null;
     }
 
 
+    /**
+     * A concrete implementation of the {@link Api} interface.
+     */
+    @Immutable
     private static final class ApiImpl implements Api {
 
+        /**
+         * Returns all types (classes, enums, interfaces, annotations) of this API.
+         *
+         * @return all types of this API.
+         */
         @Override
         public Collection<Type> getTypes() {
             throw new UnsupportedOperationException("Not supported yet.");

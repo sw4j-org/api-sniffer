@@ -18,7 +18,7 @@ package org.sw4j.mojo.apisniffer.test;
 
 /**
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public class SampleClass {
 

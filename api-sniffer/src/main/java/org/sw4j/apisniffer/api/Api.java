@@ -21,7 +21,7 @@ import java.util.Collection;
 /**
  * This interface represents an API.
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public interface Api {
 

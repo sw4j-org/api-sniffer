@@ -27,7 +27,7 @@ import org.sw4j.apisniffer.api.Api;
 
 /**
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 @NotThreadSafe
 public class ApiScanner {
@@ -41,13 +41,14 @@ public class ApiScanner {
                     .append("\" is no folder.")
                     .toString());
         }
-        File[] files = folder.getAbsoluteFile().listFiles(
-            new DirectoryOrClassFileFilter());
-        for (File file: files) {
-            if (file.isDirectory()) {
-                scanDirectory(file);
-            } else {
-                scanClass(new FileInputStream(file));
+        File[] files = folder.getAbsoluteFile().listFiles(new DirectoryOrClassFileFilter());
+        if (files != null) {
+            for (File file: files) {
+                if (file.isDirectory()) {
+                    scanDirectory(file);
+                } else {
+                    scanClass(new FileInputStream(file));
+                }
             }
         }
     }

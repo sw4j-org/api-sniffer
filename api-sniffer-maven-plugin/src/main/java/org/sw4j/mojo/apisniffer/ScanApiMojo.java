@@ -26,7 +26,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  *
- * @author Uwe Plonus <uwe.plonus@sw4j.org>
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 @Mojo(name = "scan")
 public class ScanApiMojo extends AbstractMojo {

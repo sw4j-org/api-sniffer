@@ -19,7 +19,7 @@ package org.sw4j.apisniffer.api;
 /**
  * This interface represents a member of a {@link Type}.
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public interface Member extends ApiElement {
 

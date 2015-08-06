@@ -18,7 +18,7 @@ package org.sw4j.apisniffer.util;
 
 /**
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public final class ApiUtils {
 

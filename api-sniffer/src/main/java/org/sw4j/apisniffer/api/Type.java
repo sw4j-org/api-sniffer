@@ -21,7 +21,7 @@ import java.util.Collection;
 /**
  * This interface represents a type (class, interface, enum, annotation) of the API.
  *
- * @author Uwe Plonus
+ * @author Uwe Plonus &lt;u.plonus@gmail.com&gt;
  */
 public interface Type extends ApiElement {
 
