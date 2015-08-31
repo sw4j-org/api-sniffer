@@ -18,7 +18,9 @@ package org.sw4j.apisniffer;
 
 import java.io.File;
 import java.io.IOException;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 /**
@@ -29,6 +31,10 @@ public class ApiScannerTest {
 
     private ApiScanner objectToTest;
 
+    @BeforeClass
+    public void setUpClass() {
+    }
+
     @BeforeMethod
     public void setUp() {
         objectToTest = new ApiScanner();
@@ -36,13 +42,15 @@ public class ApiScannerTest {
 
     @Test(expectedExceptions = IllegalArgumentException.class,
         expectedExceptionsMessageRegExp = ".*target/test-classes/dummy.*")
-    public void testScanDirectoryWithFile() throws IOException {
-        objectToTest.scanDirectory(new File("target/test-classes/dummy"));
+    @Parameters("testClasses")
+    public void testScanDirectoryWithFile(String testClasses) throws IOException {
+        objectToTest.scanDirectory(new File(testClasses, "dummy"));
     }
 
     @Test
-    public void testScanDirectory() throws IOException {
-        objectToTest.scanDirectory(new File(""));
+    @Parameters({"baseApiClasses",})
+    public void testScanDirectory(String baseClasses) throws IOException {
+        objectToTest.scanDirectory(new File("..", baseClasses));
     }
 
 }

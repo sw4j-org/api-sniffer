@@ -30,6 +30,22 @@ import org.sw4j.apisniffer.api.Type;
 @NotThreadSafe
 public final class ApiBuilder {
 
+    public ClassTypeBuilder createClassTypeBuilder() {
+        return new ClassTypeBuilder();
+    }
+
+    public InterfaceTypeBuilder createInterfaceTypeBuilder() {
+        return new InterfaceTypeBuilder();
+    }
+
+    public EnumTypeBuilder createEnumTypeBuilder() {
+        return new EnumTypeBuilder();
+    }
+
+    public AnnotationTypeBuilder createAnnotationTypeBuilder() {
+        return new AnnotationTypeBuilder();
+    }
+
     /**
      * Builds an {@link Api} object.
      *

@@ -23,7 +23,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
+import org.objectweb.asm.ClassReader;
 import org.sw4j.apisniffer.api.Api;
+import org.sw4j.apisniffer.builder.ApiBuilder;
+import org.sw4j.apisniffer.visitor.ApiClassVisitor;
 
 /**
  *
@@ -32,7 +35,10 @@ import org.sw4j.apisniffer.api.Api;
 @NotThreadSafe
 public class ApiScanner {
 
+    private ApiBuilder apiBuilder;
+
     public void scanDirectory(@Nonnull final File folder) throws IOException {
+        apiBuilder = new ApiBuilder();
         if (!folder.getAbsoluteFile().isDirectory()) {
             throw new IllegalArgumentException(
                 new StringBuilder("The method scanFolder(File) is for")
@@ -53,10 +59,14 @@ public class ApiScanner {
         }
     }
 
-    private void scanClass(@Nonnull final InputStream classFile) {
+    private void scanClass(@Nonnull final InputStream classFile) throws IOException {
+        ClassReader cr = new ClassReader(classFile);
+        ApiClassVisitor cv = new ApiClassVisitor(apiBuilder);
+        cr.accept(cv, 0);
     }
 
     public void scanJar(@Nonnull final InputStream is) throws IOException {
+        apiBuilder = new ApiBuilder();
     }
 
     /**
