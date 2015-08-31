@@ -28,7 +28,23 @@ import org.sw4j.apisniffer.api.Type;
  * @author Uwe Plonus &amp;lt;u.plonus@gmail.com&amp;gt;
  */
 @NotThreadSafe
-<span class="nc" id="L31">public final class ApiBuilder {</span>
+<span class="fc" id="L31">public final class ApiBuilder {</span>
+
+    public ClassTypeBuilder createClassTypeBuilder() {
+<span class="fc" id="L34">        return new ClassTypeBuilder();</span>
+    }
+
+    public InterfaceTypeBuilder createInterfaceTypeBuilder() {
+<span class="fc" id="L38">        return new InterfaceTypeBuilder();</span>
+    }
+
+    public EnumTypeBuilder createEnumTypeBuilder() {
+<span class="fc" id="L42">        return new EnumTypeBuilder();</span>
+    }
+
+    public AnnotationTypeBuilder createAnnotationTypeBuilder() {
+<span class="fc" id="L46">        return new AnnotationTypeBuilder();</span>
+    }
 
     /**
      * Builds an {@link Api} object.
@@ -36,15 +52,15 @@ import org.sw4j.apisniffer.api.Type;
      * @return the built API object.
      */
     public Api build() {
-<span class="nc" id="L39">        return null;</span>
+<span class="nc" id="L55">        return null;</span>
     }
 
 
     /**
      * A concrete implementation of the {@link Api} interface.
      */
-<span class="nc" id="L46">    @Immutable</span>
-<span class="nc" id="L47">    private static final class ApiImpl implements Api {</span>
+<span class="fc" id="L62">    @Immutable</span>
+<span class="nc" id="L63">    private static final class ApiImpl implements Api {</span>
 
         /**
          * Returns all types (classes, enums, interfaces, annotations) of this API.
@@ -53,7 +69,7 @@ import org.sw4j.apisniffer.api.Type;
          */
         @Override
         public Collection&lt;Type&gt; getTypes() {
-<span class="nc" id="L56">            throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+<span class="nc" id="L72">            throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
         }
 
     }

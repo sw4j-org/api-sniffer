@@ -25,10 +25,10 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2015</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 17,
              Errors: 0,
-             Warnings: 12,
-             Infos: 4
+             Warnings: 75,
+             Infos: 12
       </title>
             <link>https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html</link>
       <description>
@@ -52,6 +52,104 @@ under the License.
                   0
                 </td>
                 <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.ClassType.java">org/sw4j/apisniffer/api/ClassType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.AnnotationType.java">org/sw4j/apisniffer/api/AnnotationType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.InterfaceType.java">org/sw4j/apisniffer/api/InterfaceType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.util.ApiUtils.java">org/sw4j/apisniffer/util/ApiUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.Member.java">org/sw4j/apisniffer/api/Member.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.builder.TypeBuilder.java">org/sw4j/apisniffer/builder/TypeBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.builder.ClassTypeBuilder.java">org/sw4j/apisniffer/builder/ClassTypeBuilder.java</a>
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
                   1
                 </td>
                 <td>
@@ -64,6 +162,20 @@ under the License.
                 </td>
                 <td>
                   2
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.builder.EnumTypeBuilder.java">org/sw4j/apisniffer/builder/EnumTypeBuilder.java</a>
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   1
@@ -88,13 +200,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.util.ApiUtils.java">org/sw4j/apisniffer/util/ApiUtils.java</a>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.EnumType.java">org/sw4j/apisniffer/api/EnumType.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  3
+                  1
                 </td>
                 <td>
                   0
@@ -108,7 +220,7 @@ under the License.
                   2
                 </td>
                 <td>
-                  5
+                  6
                 </td>
                 <td>
                   0
@@ -130,13 +242,41 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.api.Member.java">org/sw4j/apisniffer/api/Member.java</a>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.builder.InterfaceTypeBuilder.java">org/sw4j/apisniffer/builder/InterfaceTypeBuilder.java</a>
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
                 </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.builder.AnnotationTypeBuilder.java">org/sw4j/apisniffer/builder/AnnotationTypeBuilder.java</a>
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  2
+                </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://sw4j-org.github.io/api-sniffer/api-sniffer//checkstyle.html#org.sw4j.apisniffer.visitor.ApiClassVisitor.java">org/sw4j/apisniffer/visitor/ApiClassVisitor.java</a>
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  45
                 </td>
                 <td>
                   0
