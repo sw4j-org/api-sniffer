@@ -1,3 +1,4 @@
-# api-sniffer
+# #movetogitlab
 
-A Java API Sniffer to create and check APIs
+This repository is moved to https://git.sw4j.net/sw4j-org/api-sniffer with a mirror at
+https://gitlab.com/sw4j-org/api-sniffer
